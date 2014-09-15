@@ -38,7 +38,7 @@ if(isset($_POST["email"])) {
             $foutmelding .= "De achternaam die u heeft ingevoerd blijkt tekens te bevatten die niet geldig zijn.<br>";
         }
         
-        if(strlen($probleem) < 2) {
+        if(strlen($probleem) < 5) {
             $foutmelding .= "Het aantal tekens dat u heeft geschreven is te weinig.<br>";
         }
         
@@ -49,10 +49,10 @@ if(isset($_POST["email"])) {
         
         $emailbericht = "Formulier details kunt u beneden lezen. \n\n";
         
-        $emailbericht .= "Voornaam:" . $voornaam . "\n";
-        $emailbericht .= "Achternaam:" . $achternaam . "\n";
-        $emailbericht .= "Email:" . $email . "\n";
-        $emailbericht .= "Probleem: \n" . $probleem . "\n";
+        $emailbericht .= "Voornaam: " . $voornaam . "\n";
+        $emailbericht .= "Achternaam: " . $achternaam . "\n";
+        $emailbericht .= "Email: " . $email . "\n\n";
+        $emailbericht .= "Onderwerp: \n" . $probleem . "\n";
         // email headers
         $headers = 'From: ' .$email_from . "\r\n". 'Beantwoorden:' . $email. "\r\n" .
         'X-mailer: php/' . phpversion();
