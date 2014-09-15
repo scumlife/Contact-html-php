@@ -15,18 +15,12 @@ if(isset($_POST["email"])) {
         die();
     }
     
-    $voornaam = $_POST('voornaam');
-    $achternaam = $_POST('achternaam');
+    $voornaam = $_POST['voornaam'];
+    $achternaam = $_POST['achternaam'];
     $email = $_POST['email'];
     $probleem = $_POST['probleem'];
     
-    // controleren
-    if(!isset($voornaam) ||
-        !isset($achternaam) ||
-        !isset($email) ||
-        !isset($probleem)) {
-            died("Sorry voor het ongemak, maar het blijkt dat 1 of meerdere velden niet zijn ingevuld.");
-        }
+        //controleren
         
         $foutmelding = "";
         $emailverwachting = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2, 4}$/';  
@@ -35,10 +29,6 @@ if(isset($_POST["email"])) {
         $voornaamverwachting = "/^[A-Za-z.'-]+$/";
         $achternaamverwachting = "/^[A-Za-z.'-]+$/";
         // alles tussen de [] kan gebruikt worden in de voor en achternaam //
-        
-        if(!preg_match($emailverwachting, $email)) {
-            $foutmelding .= "Het e-mailadres dat u heeft ingevoerd blijkt tekens te bevatten die niet geldig zijn.<br>";
-        }
         
         if(!preg_match($voornaamverwachting, $voornaam)) {
             $foutmelding .= "De voornaam die u heeft ingevoerd blijkt tekens te bevatten die niet geldig zijn.<br>";
@@ -53,14 +43,16 @@ if(isset($_POST["email"])) {
         }
         
         if(strlen($foutmelding) > 0) {
-            died($foutmelding);
+            echo $foutmelding;
+            die();
         }
+        
         $emailbericht = "Formulier details kunt u beneden lezen. \n\n";
         
         $emailbericht .= "Voornaam:" . $voornaam . "\n";
         $emailbericht .= "Achternaam:" . $achternaam . "\n";
         $emailbericht .= "Email:" . $email . "\n";
-        $emailbericht .= "Probleem:" . $probleem . "\n";
+        $emailbericht .= "Probleem: \n" . $probleem . "\n";
         // email headers
         $headers = 'From: ' .$email_from . "\r\n". 'Beantwoorden:' . $email. "\r\n" .
         'X-mailer: php/' . phpversion();
