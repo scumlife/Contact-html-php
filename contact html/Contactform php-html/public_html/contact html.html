@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contactformulier</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href='stylesheet.css'>
+    </head>
+    <body>
+        <div id="contactformulier">
+            <form method="post" action="contact.php" enctype="multipart/form-data">
+                <fieldset> 
+                    <label class="voornaam"> Voornaam:</label>
+                    <input name="voornaam" required="required" maxlength="20" placeholder="Type hier..."/> 
+                    <br> <br>
+                    <label> Achternaam: </label>
+                    <input name="achternaam" required="required" maxlength="20" placeholder="Type hier..."/> 
+                    <br> <br>
+                    <label> Email: </label>
+                    <input type="email" required="required" name="email" placeholder="Type hier..."/>
+                    <br> <br>
+                    <label> Onderwerp: </label>
+                    <select id="keuze"> 
+                        <option value="vraag"> Vraag </option>
+                        <option value="opmerking"> Opmerking </option>
+                        <option value="klacht"> Klacht </option>
+                        <option value="anders"> Anders </option>
+                    </select>
+                    <br> <br>
+                    <textarea name="probleem" required="required" placeholder="Type hier..."></textarea>
+                </fieldset>
+                <fieldset>
+                    <input class="verzenden" type="submit" name="verzenden" id="verzenden" value="Feedback Verzenden" />
+                </fieldset>
+            </form>
+         </div>
+    </body>
+</html>

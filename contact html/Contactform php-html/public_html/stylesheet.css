@@ -1,0 +1,21 @@
+#contactformulier {
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px 0;
+}
+
+input {
+    float: right;
+    width: 175px;
+}
+
+#keuze {
+    float: right;
+    width: 175px;
+}
+
+textarea {
+    float: right;
+    width: 220px;
+    height: 100px;
+}
